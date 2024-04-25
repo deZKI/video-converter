@@ -6,7 +6,7 @@ export abstract class CommandExecutor<Input> {
     protected constructor(private logger: IStreamLogger) {
     }
 
-    protected async execute() {
+    public async execute() {
         const input = await this.prompt()
         const command = await this.build(input)
         const stream = await this.spawn(command)
